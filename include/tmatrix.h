@@ -49,6 +49,7 @@ public:
   }
   TDynamicVector& operator=(TDynamicVector&& v) noexcept
   {
+      return *this;
   }
 
   size_t size() const noexcept { return sz; }
