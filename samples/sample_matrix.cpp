@@ -10,7 +10,7 @@
 
 void main()
 {
-  TDynamicMatrix<int> a(5), b(5), c(5);
+  /*TDynamicMatrix<int> a(5), b(5), c(5);
   int i, j;
 
   setlocale(LC_ALL, "Russian");
@@ -25,6 +25,22 @@ void main()
   c = a + b;
   cout << "Matrix a = " << endl << a << endl;
   cout << "Matrix b = " << endl << b << endl;
-  cout << "Matrix c = a + b" << endl << c << endl;
+  cout << "Matrix c = a + b" << endl << c << endl;*/
+    int arr1[3] = { 1, 2, 3 };
+    int arr2[3] = { 4, 5, 6 };
+    TDynamicVector<int> a(arr1, 3);
+    TDynamicVector<int> b(a);
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    //std::cout << (a == b) << '\n' << (a != b) << '\n';
+
+    /*b *= 100;
+    a = b;
+    a -= b;
+    a = a + 1;
+    std::cout << b << std::endl;
+    std::cout << a << std::endl;*/
+    int c = a * b;
+    std::cout << c << '\n';
 }
 //---------------------------------------------------------------------------
