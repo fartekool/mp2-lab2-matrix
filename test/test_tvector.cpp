@@ -142,8 +142,7 @@ TEST(TDynamicVector, compare_vector_with_itself_return_true)
 
 TEST(TDynamicVector, vectors_with_different_size_are_not_equal)
 {
-	TDynamicVector<int> a(3);
-	TDynamicVector<int> b(4);
+	TDynamicVector<int> a(3), b(4);
 
 	EXPECT_TRUE(a != b);
 	EXPECT_FALSE(a == b);
@@ -165,6 +164,21 @@ TEST(TDynamicVector, can_add_scalar_to_vector)
 	EXPECT_EQ(c, result);
 }
 
+TEST(TDynamicVector, can_increment_vector) // added
+{
+	int arr[3] = { 1, 2, 3 };
+	TDynamicVector<int> a(arr, 3), b(arr, 3), c(3), d(3);
+	c = ++a;
+	d = b++;
+	int arr1[3] = { 2, 3, 4 };
+	TDynamicVector<int> result(arr1, 3);
+
+	EXPECT_EQ(a, result);
+	EXPECT_EQ(a, b);
+	EXPECT_EQ(c, a);
+	EXPECT_NE(b, d);
+}
+
 TEST(TDynamicVector, can_subtract_scalar_from_vector)
 {
 	int arr1[3] = { 1, 2, 3 };
@@ -179,6 +193,21 @@ TEST(TDynamicVector, can_subtract_scalar_from_vector)
 	EXPECT_NE(a, result);
 	EXPECT_EQ(b, result);
 	EXPECT_EQ(c, result);
+}
+
+TEST(TDynamicVector, can_decrement_vector) // added
+{
+	int arr[3] = { 1, 2, 3 };
+	TDynamicVector<int> a(arr, 3), b(arr, 3), c(3), d(3);
+	c = --a;
+	d = b--;
+	int arr1[3] = { 0, 1, 2 };
+	TDynamicVector<int> result(arr1, 3);
+
+	EXPECT_EQ(a, result);
+	EXPECT_EQ(a, b);
+	EXPECT_EQ(c, a);
+	EXPECT_NE(b, d);
 }
 
 TEST(TDynamicVector, can_multiply_scalar_by_vector)
